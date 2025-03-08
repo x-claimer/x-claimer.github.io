@@ -1,9 +1,74 @@
+# resume/templates/resume.html
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Ateeq Ur Rehman</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="/static/script.js" defer></script>
+</head>
 
 <body>
-    <h1>Hello World</h1>
-    <p>I'm hosted with GitHub Pages.</p>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <h1>Ateeq Ur Rehman</h1>
+        <p>Data Engineer | Cloud & Big Data Enthusiast</p>
+        <a href="#contact" class="btn">Contact Me</a>
+    </section>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Experienced Data Engineer skilled in Python, SQL, Big Data, and Cloud Technologies. Passionate about solving
+            real-world data challenges.</p>
+    </section>
+
+    <section id="experience">
+        <h2>Experience</h2>
+        <div class="job">
+            <h3>Associate Consultant (Data Engineer) | Capgemini</h3>
+            <p>Developed cloud-based data solutions improving efficiency by 30%.</p>
+        </div>
+        <div class="job">
+            <h3>Senior Analyst (Cloud Developer) | Capgemini</h3>
+            <p>Managed cloud-based applications ensuring security and scalability.</p>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="project">
+            <h3>Airbnb Price Predictor</h3>
+            <p>Built an ML model with 85% accuracy predicting Airbnb prices.</p>
+        </div>
+        <div class="project">
+            <h3>Sign Language Conversion</h3>
+            <p>Deep learning-based sign language to text conversion system.</p>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <p>Email: <a href="mailto:maur1301@umd.edu">maur1301@umd.edu</a></p>
+        <p><a href="https://www.linkedin.com/in/mohammedateequrrehman/">LinkedIn</a> | <a
+                href="https://github.com/x-claimer">GitHub</a></p>
+    </section>
+
+    <footer>
+        <p>© 2025 Ateeq Ur Rehman. All rights reserved.</p>
+    </footer>
 </body>
 
 </html>
