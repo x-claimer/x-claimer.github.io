@@ -1,9 +1,377 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mohammed Ateeq Ur Rehman - Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* Reset and Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Arial", sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Container: Sidebar + Content */
+    .container {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* SIDEBAR */
+    .sidebar {
+      width: 350px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      padding: 40px 20px;
+
+      /* Background color & optional image */
+      /* fallback color */
+      background: #131a4c;
+      /* background image */
+      /* background-image: url("panel_bg.jpg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover; */
+
+      /* Layout & text styling */
+      color: #d1d1d1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      /* top content + footer at bottom */
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+      /* not scrollable */
+    }
+
+    .profile-pic {
+      width: 220px;
+      height: 220px;
+      object-fit: cover;
+      /* nicely crops the image */
+      border-radius: 40%;
+      margin-bottom: 20px;
+      border: 2px solid #fff;
+
+    }
+
+    .sidebar-top {
+      margin-top: 50px;
+      margin-bottom: 20px;
+      /* adjust to push content down */
+    }
+
+    .sidebar-top h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .sidebar-top p {
+      font-size: 1.2rem;
+    }
+
+
+    /* Sidebar Menu */
+    .sidebar-menu {
+      margin-top: 0px;
+      /* space between top content and menu */
+    }
+
+    .sidebar-menu ul li {
+      margin-top: 0px;
+      list-style: none;
+      font-size: 1.4rem;
+      margin-top: 0px;
+      margin-bottom: 25px;
+      transition: color 0.3s;
+    }
+
+    .sidebar-menu ul li:hover {
+      color: #f39c12;
+    }
+
+    /* Footer area in the sidebar */
+    .sidebar-footer {
+      display: flex;
+      flex-direction: column;
+      /* icons above text */
+      align-items: center;
+      gap: 5px;
+      /* small space between icons and text */
+    }
+
+    .sidebar-footer p {
+      font-size: 1.5rem;
+      margin: 0;
+      /* remove default paragraph margin */
+    }
+
+    .footer-icons {
+      display: flex;
+      gap: 10px;
+      /* spacing between icons */
+    }
+
+    .footer-icons a i {
+      font-size: 1.8rem;
+      color: #fff;
+      transition: color 0.3s;
+    }
+
+    .footer-icons a i:hover {
+      color: #f39c12;
+    }
+
+    /* MAIN CONTENT (Right Column) */
+    .content {
+      flex: 1;
+      margin-left: 350px;
+      /* Shifts content to accommodate fixed sidebar */
+      padding: 40px;
+      background-color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    .content section {
+      margin-bottom: 60px;
+      text-align: justify;
+    }
+
+    .content h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      position: relative;
+      color: #333;
+    }
+
+    .content h2::after {
+      content: "";
+      width: 100px;
+      height: 3px;
+      background: #f39c12;
+      display: block;
+      margin-top: 10px;
+    }
+
+    .content h3 {
+      font-size: 1.2rem;
+      margin-top: 15px;
+    }
+
+    .content p {
+      margin-bottom: 15px;
+      line-height: 1.6;
+    }
+
+    /* Projects Grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .project-item {
+      background: #fff;
+      border-radius: 8px;
+      padding: 15px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+    }
+
+    .project-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .project-item img {
+      width: 100%;
+      border-radius: 5px;
+    }
+
+    .project-item h3 {
+      margin: 15px 0 10px;
+      font-size: 1.1rem;
+      color: #222;
+    }
+
+    .project-item p {
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    /* Timeline (Education & Experience) */
+    .timeline {
+      border-left: 3px solid #f39c12;
+      padding-left: 20px;
+      margin-left: 10px;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 30px;
+    }
+
+    .timeline-item::before {
+      content: "";
+      width: 14px;
+      height: 14px;
+      background: #f39c12;
+      border-radius: 50%;
+      position: absolute;
+      left: -28px;
+      top: 5px;
+    }
+
+    .timeline-item h3 {
+      font-size: 1.1rem;
+      margin-bottom: 5px;
+    }
+
+    .timeline-item span {
+      font-size: 0.9rem;
+      color: #777;
+    }
+
+    /* Footer / Contact Section (if you want a separate bottom-of-page footer) */
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 0.9rem;
+      color: #666;
+    }
+  </style>
+</head>
 
 <body>
-    <h1>Hello World</h1>
-    <p>I'm hosted with GitHub Pages.</p>
+  <div class="container">
+    <aside class="sidebar">
+      <div class="sidebar-top">
+        <img src="profile.png" alt="Profile Picture" class="profile-pic" />
+        <h2>Mohammed Ateeq Ur Rehman</h2>
+        <p>Graduate Student at UMD<br />College Park, MD</p>
+      </div>
+
+      <nav class="sidebar-menu">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+        </ul>
+      </nav>
+
+      <div class="sidebar-footer">
+        <p>Connect with me:</p>
+        <div class="footer-icons">
+          <a href="mailto:maur1301@umd.edu"><i class="fas fa-envelope"></i></a>
+          <a href="https://www.linkedin.com/in/mohammedateequrrehman" target="_blank"><i
+              class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/x-claimer" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+    </aside>
+
+    <main class="content">
+      <section id="about">
+        <h2>About Me</h2>
+        <p>Data Engineer with over 3.5 years of experience specializing in cloud services, particularly Microsoft Azure
+          and DevOps. Skilled in all stages of the operations and development cycle, including CI/CD and manual
+          deployments, with a proven track record in data warehousing and reporting projects. I possess a strong
+          background in cross- platform collaboration and excellent customer relations. A highly enthusiastic
+          professional, I am eager to advance my skills in data science and cloud technologies while exploring
+          innovative solutions in data analytics and engineering. Seeking a challenging Data role that allows me to
+          contribute my expertise and passion for data- driven insights</p>
+      </section>
+
+      <section id="education">
+        <h2>Education</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <h3>University of Maryland, College Park</h3>
+            <span>Master of Science in Data Science (Expected May 2026)</span>
+          </div>
+          <div class="timeline-item">
+            <h3>National Institute of Technology, Calicut</h3>
+            <span>Bachelor of Technology in Electronics and Communication (2016-2020)</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience">
+        <h2>Work Experience</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <h3>Capgemini - Associate Consultant (Data Engineer)</h3>
+            <span>Apr 2022 – Jun 2024</span>
+            <p>&bull; Developed and maintained cloud-based data warehouse applications for
+              Coca-Cola, improving sales data management efficiency by 30% and increasing pricing data availability by
+              50% for better decision-making.</p>
+            <p>&bull; Led AWS data migration for NHS Scotland, transitioning from Oracle DB
+              to Snowflake using AWS DMS and S3 buckets, reducing human intervention and wait times by 30%.</p>
+            <p>&bull; Built a PC to IICS Accelerator App using Python, which automated the
+              conversion of XML/JSON logs into Excel, reducing workload by 40% for internal teams.</p>
+            <p>&bull; Optimized big data processing and ETL workflows using Apache Spark,
+              Databricks, Azure Data Factory, Informatica, and Apache Airflow, enhancing data transformation speed and
+              reducing processing time by 25%.</p>
+            <p>&bull; Designed and implemented CI/CD pipelines with Azure DevOps for
+              efficient and reliable deployments while managing and analyzing large datasets across Azure Analysis
+              Server, Cosmos DB, MySQL, Oracle DB, Snowflake, and PostgreSQL.</p>
+            <p>&bull; Automated reporting and data visualization using Power BI, SSAS, and
+              Tableau, enabling data-driven decision-making through insightful analytics.</p>
+          </div>
+          <div class="timeline-item">
+            <h3>Capgemini - Senior Analyst (Cloud Developer)</h3>
+            <span>Nov 2020 – Apr 2022</span>
+            <p>Designed and deployed cloud-based applications, automated workflows, and enhanced security compliance.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills">
+        <h2>Skills & Certifications</h2>
+        <ul>
+          <li>Python, PySpark, SQL, Shell Scripting</li>
+          <li>Azure, AWS, Hadoop, Databricks, Kafka</li>
+          <li>CI/CD, Docker, Kubernetes, Power BI</li>
+          <li>Certifications: AZ-900, DA-100, AZ-104</li>
+        </ul>
+      </section>
+
+      <section id="projects">
+        <h2>Projects</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <h3>Airbnb Price Predictor</h3>
+            <span>Sep 2024 – Oct 2024</span>
+            <p>Developed an ML model predicting Airbnb prices with 85% accuracy.</p>
+          </div>
+          <div class="timeline-item">
+            <h3>Sign Language Conversion</h3>
+            <span>July 2019 - Jun 2020</span>
+            <p>Designed a CNN-based system to convert sign language into text.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
 </body>
 
 </html>
